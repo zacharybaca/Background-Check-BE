@@ -1,9 +1,5 @@
-
 const express = require('express'); // import the express package
 // equilalent to import express from 'express'
-
-// const db = require('./data/db.js'); 
-
 
 
 
