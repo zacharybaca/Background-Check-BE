@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './data/background.db3'
+      filename: './data/background-check.sqlite3'
     },
     useNullAsDefault: true,
     migrations: {
