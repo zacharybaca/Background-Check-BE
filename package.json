@@ -1,0 +1,19 @@
+{
+  "name": "labs12-background-check",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js"
+  },
+  "repository": "git@github.com:labs12-background-check/labs12-background-check.git",
+  "author": "cubsfan46350 <cubsfan.46350@msn.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "knex": "^0.16.5",
+    "sqlite3": "^4.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
