@@ -4,7 +4,7 @@ const server = express();
 
 
 
-// sanity check
+// sanity check.
 server.get('/', (req, res) => {
   res.send(`
     it's working!
