@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 const express = require('express'); // import the express package
 // equilalent to import express from 'express'
@@ -7,9 +6,8 @@ const express = require('express'); // import the express package
 
 
 
-require('dotenv').config(); // load .env variables
 
-const server = require('./api/server.js');
+const server = require('./server.js');
 
 const port = process.env.PORT || 3000;
 server.listen(port, () => {
