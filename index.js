@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express');
 const db = require('./data/db.js');
 const server = express();
@@ -31,3 +32,14 @@ server.listen(3000, () => {
 });
 
 //comment
+=======
+require('dotenv').config();
+
+const server = require('./api/server.js');
+
+const port = process.env.PORT || 3000
+
+server.listen(port, () => {
+console.log(`\n*** Server Running on http://localhost:${port} ***\n`);
+});
+>>>>>>> 776d13ca9830aa3000d4279693a394bb0d8bb848
