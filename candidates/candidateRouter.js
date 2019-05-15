@@ -3,6 +3,8 @@ const router = require('express').Router();
 const Candidates = require('./candidateModel.js');
 
 
+// GET CANDIDATE
+// shows in console.log & in Postman
 var request = require("request");
 
 var options = { method: 'GET',
@@ -29,7 +31,16 @@ request(options, function (error, response, body) {
 
 
 
-// Post
+// // POST CANDIDATE
+// // shows in console.log & in Postman
+// // error in console log but working in Postman:
+// // {
+// //   "errors" : [ {
+// //     "code" : "102",
+// //     "message" : "invalid request data",
+// //     "param" : null
+// //   } ]
+// // }
 var request = require("request");
 
 var options = { method: 'POST',
@@ -57,48 +68,100 @@ request(options, function (error, response, body) {
 
 
 
+// // GET ORDER
+// // shows in console.log & in Postman
+// // same 102 error as for Post
+var request = require("request");
 
-// get error for Post
-// {
-//   "errors" : [ {
-//     "code" : "102",
-//     "message" : "invalid request data",
-//     "param" : null
-//   } ]
-// }
-// // var request = require("request");
+var options = { method: 'GET',
+  url: 'https://api.accuratebackground.com/v3/order/',
+  headers: 
+   { 'cache-control': 'no-cache',
+     Connection: 'keep-alive',
+     'content-length': '153',
+     'accept-encoding': 'gzip, deflate',
+     Host: 'api.accuratebackground.com',
+     'Postman-Token': '0140e271-034a-4bb2-aa03-eb6451771ff7,65bfe755-838d-457c-8e03-dd4c497854a8',
+     'Cache-Control': 'no-cache',
+     Accept: '*/*',
+     'User-Agent': 'PostmanRuntime/7.11.0',
+     Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==' },
+  form: 
+   { candidateId: '5cdc4074093c611a5ebdbd6d',
+     workflow: 'EXPRESS',
+     packageType: 'PKG_BASIC',
+     'jobLocation.city': 'San Francisco',
+     'jobLocation.region': 'CA',
+     'jobLocation.country': 'US' } };
 
-// var options = { method: 'POST',
-//   url: 'https://api.accuratebackground.com/v3/candidate/',
-//   headers: 
-//    { 'cache-control': 'no-cache',
-//      Connection: 'keep-alive',
-//      'content-length': '3368',
-//      'accept-encoding': 'gzip, deflate',
-//      Host: 'api.accuratebackground.com',
-//      'Postman-Token': '93edbcfb-bc03-4b10-aad6-ae061c86251f,77a426a6-7769-4b57-a3df-f296c2f5a4d0',
-//      'Cache-Control': 'no-cache',
-//      Accept: '*/*',
-//      'User-Agent': 'PostmanRuntime/7.11.0',
-//      Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==',
-//      'Content-Type': 'application/json' } };
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
 
-// request(options, function (error, response, body) {
-//   if (error) throw new Error(error);
-
-//   console.log(body);
-// });
-
-
-
-
-      
+  console.log(body);
+});
 
 
 
 
 
 
+// POST ORDER for Canidate
+// shows in console.log & in Postman
+// same 102 error as for Post
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'https://api.accuratebackground.com/v3/order/',
+  headers: 
+   { 'cache-control': 'no-cache',
+     Connection: 'keep-alive',
+     'content-length': '153',
+     'accept-encoding': 'gzip, deflate',
+     Host: 'api.accuratebackground.com',
+     'Postman-Token': 'ff9f0d62-e720-496e-9e82-888e8004a2aa,d7dab321-61ed-4b6b-bbf5-8da26ec19c83',
+     'Cache-Control': 'no-cache',
+     Accept: '*/*',
+     'User-Agent': 'PostmanRuntime/7.11.0',
+     Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==' },
+  form: 
+   { candidateId: '5cdc4074093c611a5ebdbd6d',
+     workflow: 'EXPRESS',
+     packageType: 'PKG_BASIC',
+     'jobLocation.city': 'San Francisco',
+     'jobLocation.region': 'CA',
+     'jobLocation.country': 'US' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+
+
+module.exports = server => {
+  server.get('/api/candidates', getCanidates);
+};
+
+function getCanidates(req, res) {
+  const requestOptions = {
+    headers: { accept: 'application/json' },
+  };
+
+  axios
+    .get('https://api.accuratebackground.com/v3/candidate/', requestOptions)
+    .then(response => {
+      res.status(200).json(response.data.results);
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Error Fetching Candidates', error: err });
+    });
+}
+
+
+
+
+// candidateRouter
 router.get('/candidates', (req, res) => {
   Candidates.find()
     .then(candidate => {
