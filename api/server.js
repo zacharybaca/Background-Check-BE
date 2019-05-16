@@ -15,7 +15,7 @@ server.use(cors());
 server.use('/users', userRouter);
 server.use('/candidates', candidateRouter);
 
-
+// sanity check
 server.get('/', (req, res) => {
     res.status(200).json('API is running');
 });
