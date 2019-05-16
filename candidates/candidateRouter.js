@@ -3,7 +3,8 @@ const router = require('express').Router();
 const Candidates = require('./candidateModel.js');
 
 
-//# Create a Candidate 
+//# Create a Candidate with key 
+// returns extra long json data (including orders)
 var https = require('https');
 var username = '7f5a5a78-1684-4662-9a7f-c1ada1808861';
 var password = '12c7f43a-81b5-4bc5-9796-2cbf4aeb4e8c';
