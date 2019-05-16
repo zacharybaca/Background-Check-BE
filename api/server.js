@@ -16,7 +16,7 @@ server.use('/auth',authRoutes);
 server.use('/users', userRouter);
 server.use('/candidates', candidateRouter);
 
-
+// sanity check
 server.get('/', (req, res) => {
     res.status(200).json('API is running');
 });
