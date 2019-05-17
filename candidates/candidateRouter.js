@@ -10,8 +10,8 @@ const Candidates = require('./candidateModel.js');
 //# Create a Candidate with key 
 // returns extra long json data (including orders)
 // var https = require('https');
-// var username = '63d52555-b02d-4143-9559-ea9d7a8ec308';
-// var password = 'bc35250a-861f-45e0-9222-beb71f4cd04e';
+// var username = '7f5a5a78-1684-4662-9a7f-c1ada1808861';
+// var password = '12c7f43a-81b5-4bc5-9796-2cbf4aeb4e8c';
 // var headers = {
 //       'Content-Type': 'application/json',
 //       'Authorization': 'Basic ' + new Buffer(username + ':' + password).toString('base64')
@@ -32,7 +32,7 @@ const Candidates = require('./candidateModel.js');
 //          console.log(body);
 //     })
 //     res.on('error', function(e) {
-//         console.log("Got error: " + e.message);
+//         onsole.log("Got error: " + e.message);
 //     });
 // });
 // var dataString = JSON.stringify({
@@ -49,8 +49,8 @@ const Candidates = require('./candidateModel.js');
 
 
 
-// GET CANDIDATE
-// shows in console.log & in Postman
+// // GET CANDIDATE
+// // shows in console.log & in Postman
 var request = require("request");
 
 var options = { method: 'GET',
@@ -60,13 +60,12 @@ var options = { method: 'GET',
      Connection: 'keep-alive',
      'accept-encoding': 'gzip, deflate',
      Host: 'api.accuratebackground.com',
-     'Postman-Token': 'a40453ee-623f-436f-a882-114a57ee645e,75c01411-63a2-4672-b603-23e249b90a46',
+     'Postman-Token': '5f32126e-60f4-4dad-8dc1-a3b44ce47ffc,205b9389-bfd3-4e7b-b7ea-732ddc5baa67',
      'Cache-Control': 'no-cache',
      Accept: '*/*',
-     'User-Agent': 'PostmanRuntime/7.13.0',
-     Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==',
-     'Content-Type': 'application/x-www-form-urlencoded' } };
-
+     'User-Agent': 'PostmanRuntime/7.11.0',
+     Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==',
+     'Content-Type': 'application/json' } };
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
@@ -87,6 +86,7 @@ router.get('/', (req, res) => {
      'User-Agent': 'PostmanRuntime/7.13.0',
      Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==',
      'Content-Type': 'application/json' } };
+
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -234,10 +234,10 @@ request(options, function (error, response, body) {
 //   server.get('/api/candidates', getCanidates);
 // };
 
-// function getCandidates(req, res) {
-//   const requestOptions = {
-//     headers: { accept: 'application/json' },
-//   };
+function getCanidates(req, res) {
+  const requestOptions = {
+    headers: { accept: 'application/json' },
+  };
 
 //   axios
 //     .get('https://api.accuratebackground.com/v3/candidate/', requestOptions)
@@ -253,14 +253,14 @@ request(options, function (error, response, body) {
 
 
 // candidateRouter
-// router.get('/candidates', (req, res) => {
-//   Candidates.find()
-//     .then(candidate => {
-//         res.json(candidate);
-//     })
-//     .catch(err => 
-//         res.status(500).json(err));
-// });
+router.get('/candidates', (req, res) => {
+  Candidates.find()
+    .then(candidate => {
+        res.json(candidate);
+    })
+    .catch(err => 
+        res.status(500).json(err));
+});
 
 // router.get('/candidates/:id', (req, res) => {
 //   Candidates.findById(req.params.id)
