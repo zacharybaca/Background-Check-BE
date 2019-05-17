@@ -67,7 +67,7 @@ var options = { method: 'GET',
      Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==',
      'Content-Type': 'application/json' } };
 
-     
+
      
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -89,7 +89,6 @@ router.get('/', (req, res) => {
      'User-Agent': 'PostmanRuntime/7.13.0',
      Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==',
      'Content-Type': 'application/json' } };
-
 
 
 request(options, function (error, response, body) {
@@ -303,5 +302,5 @@ router.get('/candidates', (req, res) => {
 //       });
 //     }
 // });
-
+}
 module.exports = router;
