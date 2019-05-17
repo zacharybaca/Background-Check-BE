@@ -75,3 +75,6 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Keys for Google Client ID and Secret
+keys.js
