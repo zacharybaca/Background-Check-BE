@@ -132,6 +132,29 @@ request(options, function (error, response, body) {
   console.log(body);
 });
 
+
+
+var options = { method: 'POST',
+  url: 'https://api.accuratebackground.com/v3/candidate/',
+  headers: 
+   { 'cache-control': 'no-cache',
+     Connection: 'keep-alive',
+     'content-length': '3367',
+     'accept-encoding': 'gzip, deflate',
+     Host: 'api.accuratebackground.com',
+     'Postman-Token': '22f25894-851b-4fe4-a388-54cee957ae03,399eca6f-9950-4548-9378-08eac8a6089a',
+     'Cache-Control': 'no-cache',
+     Accept: '*/*',
+     'User-Agent': 'PostmanRuntime/7.11.0',
+     Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==',
+     'Content-Type': 'application/json' } };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
 router.post('/', (req, res) => {
   var options = { method: 'POST',
   url: 'https://api.accuratebackground.com/v3/candidate/',
@@ -263,6 +286,9 @@ router.get('/candidates', (req, res) => {
         res.status(500).json(err));
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5c19d6a23c66c5319c8ee79b5174a348e2d52d64
 
 router.get('/candidates/:id', (req, res) => {
   Candidates.findById(req.params.id)
@@ -300,6 +326,7 @@ router.delete('/candidates/:id', async (req, res) => {
         message: 'Error deleting candidate',
       });
     }
+<<<<<<< HEAD
 =======
 
 router.get('/candidates/:id', (req, res) => {
@@ -318,6 +345,8 @@ router.post('/candidates', (req, res) => {
     })
     .catch(err =>
         res.status(500).json(err));
+=======
+>>>>>>> 5c19d6a23c66c5319c8ee79b5174a348e2d52d64
 });
 
 router.put('/candidates/:id', (req, res) => {
