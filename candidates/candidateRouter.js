@@ -66,6 +66,8 @@ var options = { method: 'GET',
      'User-Agent': 'PostmanRuntime/7.11.0',
      Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==',
      'Content-Type': 'application/json' } };
+
+     
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
@@ -88,6 +90,7 @@ router.get('/', (req, res) => {
      'Content-Type': 'application/json' } };
 
 
+     
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
