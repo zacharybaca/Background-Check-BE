@@ -68,6 +68,7 @@ var options = { method: 'GET',
      'Content-Type': 'application/json' } };
 
      
+     
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
@@ -90,7 +91,7 @@ router.get('/', (req, res) => {
      'Content-Type': 'application/json' } };
 
 
-     
+
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
