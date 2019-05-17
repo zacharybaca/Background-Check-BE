@@ -2,20 +2,10 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const authRoutes = require('./routes/auth-routes');
-<<<<<<< HEAD
-const profileRoutes = require('./routes/profile-routes');
-const passportSetup = require('./services/passport-setup');
-const userRouter = require('../users/userRouter.js');
-const candidateRouter = require('../candidates/candidateRouter');
-const cookieSession = require('cookie-session');
-const keys = require('./services/keys');
-const passport = require('passport');
-=======
-// const passportSetup = require('./services/passport-setup');
+ const passportSetup = require('./services/passport-setup');
 const userRouter = require('../users/userRouter.js');
 const candidateRouter = require('../candidates/candidateRouter');
 const orderROuter = require('../')
->>>>>>> 085bdefe240d0d189289ccfa4995a4919022193a
 
 
 const server = express();
