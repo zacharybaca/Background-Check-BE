@@ -67,8 +67,6 @@ var options = { method: 'GET',
      Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==',
      'Content-Type': 'application/json' } };
 
-
-     
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
@@ -265,42 +263,42 @@ router.get('/candidates', (req, res) => {
         res.status(500).json(err));
 });
 
-// router.get('/candidates/:id', (req, res) => {
-//   Candidates.findById(req.params.id)
-//     .then(candidate => {
-//         res.json(candidate);
-//     })
-//     .catch(err => 
-//         res.status(500).json(err));
-// });
+router.get('/candidates/:id', (req, res) => {
+  Candidates.findById(req.params.id)
+    .then(candidate => {
+        res.json(candidate);
+    })
+    .catch(err => 
+        res.status(500).json(err));
+});
 
-// router.post('/candidates', (req, res) => {
-//   Candidates.add(req.body)
-//     .then(candidate => {
-//         res.json(candidate);
-//     })
-//     .catch(err =>
-//         res.status(500).json(err));
-// });
+router.post('/candidates', (req, res) => {
+  Candidates.add(req.body)
+    .then(candidate => {
+        res.json(candidate);
+    })
+    .catch(err =>
+        res.status(500).json(err));
+});
 
-// router.put('/candidates/:id', (req, res) => {
-//   Candidates.update(req.params.id, req.body)
-//       .then(candidates => {
-//         res.json(candidates);
-//       })
-//       .catch(err => 
-//         res.status(500).json(err));
-// });
+router.put('/candidates/:id', (req, res) => {
+  Candidates.update(req.params.id, req.body)
+      .then(candidates => {
+        res.json(candidates);
+      })
+      .catch(err => 
+        res.status(500).json(err));
+});
 
-// router.delete('/candidates/:id', async (req, res) => {
-//     try {
-//       const deleteCandidate = await Candidates.remove(req.params.id);
-//       res.status(200).json(deleteCandidate);
-//     } catch (error) {
-//       res.status(500).json({
-//         message: 'Error deleting candidate',
-//       });
-//     }
-// });
+router.delete('/candidates/:id', async (req, res) => {
+    try {
+      const deleteCandidate = await Candidates.remove(req.params.id);
+      res.status(200).json(deleteCandidate);
+    } catch (error) {
+      res.status(500).json({
+        message: 'Error deleting candidate',
+      });
+    }
+});
 }
 module.exports = router;
