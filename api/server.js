@@ -4,8 +4,8 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth-routes');
 // const passportSetup = require('./services/passport-setup');
 const userRouter = require('../users/userRouter.js');
-const candidateRouter = require('../candidates/candidateRouter');
-const orderROuter = require('../')
+const candidateRouter = require('../candidates/candidateRouter.js');
+const orderRouter = require('../orders/orderRouter.js');
 
 
 const server = express();
@@ -16,7 +16,7 @@ server.use(cors());
 server.use('/auth',authRoutes);
 server.use('/users', userRouter);
 server.use('/candidates', candidateRouter);
-server.use('/order', candidateRouter);
+server.use('/order', orderRouter);
 
 // sanity check
 server.get('/', (req, res) => {
