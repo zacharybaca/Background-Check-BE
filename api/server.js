@@ -4,7 +4,7 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const authRoutes = require('./routes/auth-routes');
-const passportSetup = require('./services/passport-setup');
+// const passportSetup = require('./services/passport-setup');
 const userRouter = require('../users/userRouter.js');
 const candidateRouter = require('../candidates/candidateRouter.js');
 const orderRouter = require('../orders/orderRouter.js');
@@ -12,7 +12,7 @@ const profileRoutes = require('./routes/profile-routes.js');
 const passport = require('passport');
 
 
-const server = express();
+const server = express();    
 const keys = require('../api/services/keys');
 
 const app = require("express")();

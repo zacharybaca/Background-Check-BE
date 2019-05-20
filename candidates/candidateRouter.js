@@ -77,16 +77,9 @@ router.get('/', (req, res) => {
   var options = { method: 'GET',
   url: 'https://api.accuratebackground.com/v3/candidate',
   headers: 
-   { 'cache-control': 'no-cache',
-     Connection: 'keep-alive',
-     'accept-encoding': 'gzip, deflate',
-     Host: 'api.accuratebackground.com',
-     'Postman-Token': 'a40453ee-623f-436f-a882-114a57ee645e,75c01411-63a2-4672-b603-23e249b90a46',
-     'Cache-Control': 'no-cache',
-     Accept: '*/*',
-     'User-Agent': 'PostmanRuntime/7.13.0',
+   { 
      Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==',
-     'Content-Type': 'application/json' } };
+   } };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
