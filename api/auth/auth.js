@@ -1,7 +1,7 @@
 const db = require('../../data/dbConfig.js');
 const bcrypt = require('bcryptjs');
 
-mudule.exports = server => {
+module.exports = server => {
     server.post('api/register', register);
     server.post('api/login', login);
 } 
@@ -36,6 +36,9 @@ function register(req, res) {
   }
 
     
+
+
+
 
 
 
