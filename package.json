@@ -27,10 +27,15 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.16.5",
     "knex-cleaner": "^1.1.4",
+<<<<<<< HEAD
     "node": "^12.2.0",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0",
     "react-stripe-elements": "^3.0.0",
+=======
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^2.0.0",
+>>>>>>> a09e41794fcf00c81a0b3729c141311ba873a0ad
     "sqlite3": "^4.0.8",
     "stripe": "^7.0.0",
     "supertest": "^4.0.2"
