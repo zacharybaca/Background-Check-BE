@@ -2,14 +2,6 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const authRoutes = require('./routes/auth-routes');
-<<<<<<< HEAD
- const passportSetup = require('./services/passport-setup');
-const userRouter = require('../users/userRouter.js');
-const candidateRouter = require('../candidates/candidateRouter');
-const orderROuter = require('../')
-const profileRoutes = require('../api/routes/profile-routes')
-const passport = require('passport')
-=======
 const passportSetup = require('./services/passport-setup');
 const userRouter = require('../users/userRouter.js');
 const candidateRouter = require('../candidates/candidateRouter.js');
@@ -17,12 +9,10 @@ const orderRouter = require('../orders/orderRouter.js');
 const profileRoutes = require('./routes/profile-routes.js');
 const passport = require('passport');
 
->>>>>>> a09e41794fcf00c81a0b3729c141311ba873a0ad
 
 const server = express();
 const keys = require('../api/services/keys');
 
-const keys = require('../api/services/keys');
 const app = require("express")();
 const stripe = require("stripe")("pk_test_hJ4ymeWUIsyUjYOAiTXmMMUG00HWO2eMEX");
 
@@ -35,20 +25,12 @@ server.use('/auth',authRoutes);
 server.use('/profile', profileRoutes);
 server.use('/users', userRouter);
 server.use('/candidates', candidateRouter);
-<<<<<<< HEAD
-server.use('/order', candidateRouter);
-=======
 server.use('/order', orderRouter);
->>>>>>> a09e41794fcf00c81a0b3729c141311ba873a0ad
 
 var cookieSession = require('cookie-session')
 
 server.use(cookieSession({
-<<<<<<< HEAD
-  name: 'session',
-=======
     name: 'session',
->>>>>>> a09e41794fcf00c81a0b3729c141311ba873a0ad
 
     maxAge: 24 * 60 * 60 * 1000,
     keys: [keys.session.cookieKey]

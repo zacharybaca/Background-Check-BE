@@ -4,10 +4,6 @@ const keys = require('./keys');
 const User = require('../../users/userModel').add;
 const DBUser = require('../../users/userModel');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a09e41794fcf00c81a0b3729c141311ba873a0ad
 passport.serializeUser((user, done) => {
     done(null, user.id);
 })
