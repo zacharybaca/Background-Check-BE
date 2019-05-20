@@ -35,17 +35,12 @@ router.get('/order', (req, res) => {
   request.get(options).pipe(res);
 })
 
-
-
-
-
-
 // POST ORDER for Candidate
 // shows in console.log & in Postman
 // same 102 error as for Post
 var request = require("request");
 
-router.get('/order', (req, res) => {
+router.post('/order', (req, res) => {
   var options = { method: 'POST',
     url: 'https://api.accuratebackground.com/v3/order/',
     headers: 
@@ -58,9 +53,9 @@ router.get('/order', (req, res) => {
       'Cache-Control': 'no-cache',
       Accept: '*/*',
       'User-Agent': 'PostmanRuntime/7.11.0',
-      Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==' },
+      Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==' },
     form: 
-    { candidateId: '5cdc4074093c611a5ebdbd6d',
+    { candidateId: '5c5cdc48f5093c611a5ebdbd9c',
       workflow: 'EXPRESS',
       packageType: 'PKG_BASIC',
       'jobLocation.city': 'San Francisco',
