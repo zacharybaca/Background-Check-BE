@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
@@ -16,7 +18,7 @@ const keys = require('../api/services/keys');
 const app = require("express")();
 const stripe = require("stripe")("pk_test_hJ4ymeWUIsyUjYOAiTXmMMUG00HWO2eMEX");
 
-app.use(require("body-parser").text());
+server.use(require("body-parser").text());
 
 server.use(helmet());
 server.use(express.json());
