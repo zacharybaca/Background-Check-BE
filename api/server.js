@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
@@ -16,7 +18,7 @@ const keys = require('../api/services/keys');
 const app = require("express")();
 const stripe = require("stripe")("pk_test_hJ4ymeWUIsyUjYOAiTXmMMUG00HWO2eMEX");
 
-app.use(require("body-parser").text());
+server.use(require("body-parser").text());
 
 server.use(helmet());
 server.use(express.json());
@@ -47,7 +49,7 @@ server.get('/', (req, res) => {
     res.status(200).json('API is running');
 });
 
-app.post("/charge", async (req, res) => {
+server.post("/charge", async (req, res) => {
     try {
       let {status} = await stripe.charges.create({
         amount: 2000,
@@ -62,7 +64,7 @@ app.post("/charge", async (req, res) => {
     }
   });
 
-  app.listen(9000, () => console.log("Listening on port 9000"));
+  server.listen(9000, () => console.log("Listening on port 9000"));
 
 
 module.exports = server;
