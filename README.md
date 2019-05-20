@@ -12,3 +12,12 @@ post: /users
 put: /users/:id
 delete: /users/:id
 
+| Method | Endpoint      |        Description                                                                                                                                                     |
+| ------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| POST   | /register  |                                                                                                                                                  |
+| POST   | /login     | |
+| GET    | /users     | Returns an array of all the users that are in the database.            |
+| POST   | /candidates|                                                                                                                                                 |
+| POST   | /orders    |   |
+| GET    | /candidates| respond with an array of all the candidates that are in the database.            |
+| GET    | /orders    | respond with an array of all the orders that are in the database.            |
