@@ -2,23 +2,22 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const authRoutes = require('./routes/auth-routes');
-const profileRoutes = require('./routes/profile-routes');
 const passportSetup = require('./services/passport-setup');
-const passport = require('passport');
 const userRouter = require('../users/userRouter.js');
-const candidateRouter = require('../candidates/candidateRouter');
-const orderROuter = require('../')
-const cookieSession = require('cookie-session');
-const keys = require('./services/keys');
-
+const candidateRouter = require('../candidates/candidateRouter.js');
+const orderRouter = require('../orders/orderRouter.js');
+const profileRoutes = require('./routes/profile-routes.js');
+const passport = require('passport');
 
 
 const server = express();
+const keys = require('../api/services/keys');
 
 const app = require("express")();
 const stripe = require("stripe")("pk_test_hJ4ymeWUIsyUjYOAiTXmMMUG00HWO2eMEX");
 
 app.use(require("body-parser").text());
+
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
@@ -26,9 +25,13 @@ server.use('/auth',authRoutes);
 server.use('/profile', profileRoutes);
 server.use('/users', userRouter);
 server.use('/candidates', candidateRouter);
-server.use('/order', candidateRouter);
+server.use('/order', orderRouter);
+
+var cookieSession = require('cookie-session')
 
 server.use(cookieSession({
+    name: 'session',
+
     maxAge: 24 * 60 * 60 * 1000,
     keys: [keys.session.cookieKey]
 }));
