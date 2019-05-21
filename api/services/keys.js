@@ -7,8 +7,8 @@ module.exports = {
         clientID: CLIENT_ID,
         clientSecret: CLIENT_SECRET
     },
-
+  
     session: {
         cookieKey: COOKIE_KEY
-    } 
-}
+    }
+  }
