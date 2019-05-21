@@ -16,7 +16,7 @@ const server = express();
 const keys = require('../api/services/keys');
 
 const app = require("express")();
-const stripe = require("stripe")("pk_test_hJ4ymeWUIsyUjYOAiTXmMMUG00HWO2eMEX");
+const stripe = require("stripe")("sk_test_ZhPRczzPc38M67taa8x14w2N00IesVU1LX");
 
 server.use(require("body-parser").text());
 
@@ -64,7 +64,7 @@ server.post("/charge", async (req, res) => {
     }
   });
 
-  server.listen(9000, () => console.log("Listening on port 9000"));
+  // server.listen(9000, () => console.log("Listening on port 9000"));
 
 
 module.exports = server;
