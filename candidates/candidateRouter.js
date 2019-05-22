@@ -29,7 +29,7 @@ var req = https.request(options, function(res) {
     });
     res.on('end', function() {
         //here we have the full response, html or json object
-         console.log(body);
+        //  console.log(body);
     })
     res.on('error', function(e) {
         console.log("Got error: " + e.message);
@@ -45,8 +45,6 @@ var dataString = JSON.stringify({
     });
 req.write(dataString);
 req.end();
-
-
 
 
 // GET CANDIDATE
@@ -73,13 +71,16 @@ req.end();
 //   console.log(body);
 // });
 
+
+var request = require("request");
 router.get('/', (req, res) => {
   var options = { method: 'GET',
   url: 'https://api.accuratebackground.com/v3/candidate',
   headers: 
    { 
      Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==',
-   } };
+   } 
+};
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
@@ -88,7 +89,6 @@ request(options, function (error, response, body) {
 });
   request.get(options).pipe(res);
 })
-
 
 
 // // // POST CANDIDATE
@@ -124,30 +124,85 @@ request(options, function (error, response, body) {
 //   console.log(body);
 // });
 
+var request = require("request");
+
 router.post('/', (req, res) => {
   var options = { method: 'POST',
   url: 'https://api.accuratebackground.com/v3/candidate/',
   headers: 
-   { 'cache-control': 'no-cache',
-     Connection: 'keep-alive',
-     'content-length': '152',
-     'accept-encoding': 'gzip, deflate',
-     Host: 'api.accuratebackground.com',
-     'Postman-Token': '34005f17-b685-4458-aef1-f7fb5e1a5bd4,118873d7-abe9-4f77-a794-18b8ade3fc0e',
-     'Cache-Control': 'no-cache',
-     Accept: '*/*',
-     'User-Agent': 'PostmanRuntime/7.13.0',
+   { 	
      Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==',
-     'Content-Type': 'application/json' } };
+     'Content-Type': 'application/json'
+ },
+ "firstName": "",
+ "lastName": "",
+ "middleName": "",
+ "dateOfBirth": "",
+ "ssn": "",
+ "email": "",
+ "phone": "",
+ "address": "",
+ "city": "",
+ "region": "",
+ "country": "",
+ "postalCode": "",
+ "alias.firstName": "",
+ "alias.lastName": "",
+ "alias.middleName": "",
+ "governmentId.country": "",
+ "governmentId.type": "",
+ "governmentId.number": "",
+ "prevEmployed": "",
+ "employments[].employer": "",
+ "employments[].country": "",
+ "employments[].region": "",
+ "employments[].city": "",
+ "employments[].startDate": "",
+ "employments[].endDate": "",
+ "employments[].presentlyEmployed": "",
+ "employments[].okToCall": "",
+ "educations[].school": "",
+ "educations[].country": "",
+ "educations[].region": "",
+ "educations[].city": "",
+ "educations[].degree": "",
+ "educations[].major": "",
+ "educations[].startDate": "",
+ "educations[].endDate": "",
+ "educations[].graduated": "",
+ "educations[].graduationDate": "",
+ "educations[].presentlyEnrolled": "",
+ "licenses[].category": "",
+ "licenses[].type": "",
+ "licenses[].number": "",
+ "licenses[].issuingAuthority": "",
+ "licenses[].country": "",
+ "licenses[].region": "",
+ "licenses[].city": "",
+ "references[].name": "",
+ "references[].relationship": "",
+ "references[].phone": "",
+ "references[].email": "",
+ "references[].country": "",
+ "references[].region": "",
+ "references[].city": "",
+ "references[].postalCode": "",
+ "addressHistory[].address": "",
+ "addressHistory[].city": "",
+ "addressHistory[].region": "",
+ "addressHistory[].postalCode": "",
+ "addressHistory[].country": "",
+ "addressHistory[].fromDate": "",
+ "addressHistory[].toDate": ""
+};
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
   console.log(body);
 });
-  request.get(options).pipe(res);
+  request.post(options).pipe(res);
 })
-
 
 
 // // GET ORDER
@@ -159,15 +214,7 @@ router.get('/order', (req, res) => {
   var options = { method: 'GET',
     url: 'https://api.accuratebackground.com/v3/order/',
     headers: 
-    { 'cache-control': 'no-cache',
-      Connection: 'keep-alive',
-      'content-length': '153',
-      'accept-encoding': 'gzip, deflate',
-      Host: 'api.accuratebackground.com',
-      'Postman-Token': 'dee6c111-d2c5-4375-b2fc-898686e1aa2d,6ffe4aa1-eb46-404d-af75-255697fe8cb8',
-      'Cache-Control': 'no-cache',
-      Accept: '*/*',
-      'User-Agent': 'PostmanRuntime/7.13.0',
+    { 
       Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==' },
     form: 
     { candidateId: '5cdc48f5093c611a5ebdbd9c',
@@ -182,11 +229,8 @@ router.get('/order', (req, res) => {
 
     console.log(body);
   });
+  request.get(options).pipe(res);
 })
-
-
-
-
 
 
 // POST ORDER for Candidate
@@ -194,21 +238,14 @@ router.get('/order', (req, res) => {
 // same 102 error as for Post
 var request = require("request");
 
+router.post('/order', (req, res) => {
 var options = { method: 'POST',
   url: 'https://api.accuratebackground.com/v3/order/',
   headers: 
-   { 'cache-control': 'no-cache',
-     Connection: 'keep-alive',
-     'content-length': '153',
-     'accept-encoding': 'gzip, deflate',
-     Host: 'api.accuratebackground.com',
-     'Postman-Token': 'ff9f0d62-e720-496e-9e82-888e8004a2aa,d7dab321-61ed-4b6b-bbf5-8da26ec19c83',
-     'Cache-Control': 'no-cache',
-     Accept: '*/*',
-     'User-Agent': 'PostmanRuntime/7.11.0',
-     Authorization: 'Basic N2Y1YTVhNzgtMTY4NC00NjYyLTlhN2YtYzFhZGExODA4ODYxOjEyYzdmNDNhLTgxYjUtNGJjNS05Nzk2LTJjYmY0YWViNGU4Yw==' },
+   { 
+     Authorization: 'Basic NjNkNTI1NTUtYjAyZC00MTQzLTk1NTktZWE5ZDdhOGVjMzA4OmJjMzUyNTBhLTg2MWYtNDVlMC05MjIyLWJlYjcxZjRjZDA0ZQ==' },
   form: 
-   { candidateId: '5cdc4074093c611a5ebdbd6d',
+   { candidateId: '5cddad32dcbca116e97ae37c',
      workflow: 'EXPRESS',
      packageType: 'PKG_BASIC',
      'jobLocation.city': 'San Francisco',
@@ -220,7 +257,8 @@ request(options, function (error, response, body) {
 
   console.log(body);
 });
-
+  request.get(options).pipe(res);
+})
 
 
 // module.exports = server => {
