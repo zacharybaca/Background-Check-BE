@@ -1,19 +1,19 @@
 // ADD YOUR OWN KEYS AND RENAME THIS FILE TO keys.js
 const TWITTER_TOKENS = {
-    TWITTER_CONSUMER_KEY: "C7ROI6lUmeij1rnG2nNQaVKpl",
-    TWITTER_CONSUMER_SECRET: "ydpglI9FzwbwLhJm6999o2FsMFf2FLlNESXQd4fbai4i1PjSut",
-    TWITTER_ACCESS_TOKEN: "30561163-3LiuV8Llw8uNLCJMQJT0iyLT8J6RJPwGMR7WATCw9 ", //"SOME ACCESS TOKEN",
-    TWITTER_TOKEN_SECRET: "pWt9mI5pW0a3MPKkxB8ERIt3dpVIGrpWOHBi5LkyGX3yw"
+    TWITTER_CONSUMER_KEY: "consumer key here",
+    TWITTER_CONSUMER_SECRET: "secret key here",
+    TWITTER_ACCESS_TOKEN: "access key", //"SOME ACCESS TOKEN",
+    TWITTER_TOKEN_SECRET: "token key"
   };
   
-  const DB_USER = "user"; // is that correct?
-  const DB_PASSWORD = "b43548a6-2b5f-47ce-a896-ff989622dc7e";
+  const DB_USER = ""; // is that correct?
+  const DB_PASSWORD = "password here";
   const MONGODB = {
     MONGODB_URI: `mongodb://${DB_USER}:${DB_PASSWORD}@ds<SOME_DOMAIN>.mlab.com:<PORT>/<PROJECT_NAME>`
   };
   
   const SESSION = {
-    COOKIE_KEY: "thisappisawesome"
+    COOKIE_KEY: "cookie key here"
   };
   
   const KEYS = {
